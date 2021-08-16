@@ -21,6 +21,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = config.get('SQLALCHEMY_DATABASE_URI')
 
 db = SQLAlchemy(app)
 
-from forex_24_app import routes
-from forex_24_app.forms import PostForm, AdminForm, LoginForm
-from forex_24_app.models import Admin, Post
+from forex_26_app import routes
+from forex_26_app.forms import PostForm, AdminForm, LoginForm
+from forex_26_app.models import Admin, Post

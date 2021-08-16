@@ -2,7 +2,7 @@
 # ======= IS THERE =======
 
 from datetime import datetime
-from forex_24_app import db, login_manager
+from forex_26_app import db, login_manager
 from flask_login import UserMixin
 
 

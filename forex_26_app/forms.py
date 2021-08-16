@@ -1,8 +1,8 @@
 
 # ======= IS THERE =======
 
-from forex_24_app.models import Admin, Post, Post_Signals
-from forex_24_app import bcrypt
+from forex_26_app.models import Admin, Post, Post_Signals
+from forex_26_app import bcrypt
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, TextAreaField, SubmitField

@@ -4,43 +4,44 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <article class="posts_article pt-5">
+    <article class="">
         {% for post in posts %}
         {% if post.image != 'default.jpg' %}
-        <div class="card mb-3 reveal">
+        <div class="card">
             <div class="card-body">
-                <h5 class="card-title mb-3 border-bottom pb-2"><a class="link post-title" href="{{ url_for('post', post_title=post.title, post_id=post.id) }}">{{ post.title }}</a></h5>
-                <img class="overview-image mb-3" style="width:100%;height:auto;" alt="image" src="{{ url_for('static', filename='photos/' + post.image) }}">
+                <img class="overview-image" alt="image" src="{{ url_for('static', filename='photos/' + post.image) }}">
+                <small class="date-posted">{{ post.posted_date.strftime("%B %d, %Y") }}, {{ post.posted_date.strftime("%-I")|int + 2 }} : {{ post.posted_date.strftime("%M") }} {{ post.posted_date.strftime("%p") }}</small>
+
+                <h5 class="card-title"><a class="link post-title" href="{{ url_for('post', post_title=post.title, post_id=post.id) }}">{{ post.title }}</a></h5>
                 {% if post.post|length > 50 %}
                     <p class="card-text article-content">{{ post.post[0:50] }}...<a class="link read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">read more</a></p>
                 {% else %}
                     <p class="card-text article-content">{{ post.post }}</p>
                 {% endif %}
-                <p class="card-text"><small class="text-muted">Posted on {{ post.posted_date.strftime("%d / %m / %Y") }} at {{ post.posted_date.strftime("%-I")|int + 2 }} : {{ post.posted_date.strftime("%M") }} {{ post.posted_date.strftime("%p") }}</small></p>
 
                 {% if current_user.is_authenticated %}
-                    <div class="container">
-                        <a class="btn btn-outline-warning" href="{{ url_for('update', post_id=post.id) }}">Update</a>
-                        <a class="btn btn-outline-danger" href="{{ url_for('delete', post_id=post.id) }}">Delete</a>
+                    <div class="">
+                        <a class="btn" href="{{ url_for('update', post_id=post.id) }}">Update</a>
+                        <a class="btn" href="{{ url_for('delete', post_id=post.id) }}">Delete</a>
                     </div>
                 {% endif %}
             </div>
         </div>
         {% else %}
-        <div class="card mb-3 reveal">
+        <div class="card">
             <div class="card-body">
-                <h5 class="card-title mb-3 border-bottom pb-2"><a class="link post-title" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">{{ post.title }}</a></h5>
+                <p class="card-text"><small class="text-muted">{{ post.posted_date.strftime("%B %d, %Y") }}, {{ post.posted_date.strftime("%-I")|int + 2 }}:{{ post.posted_date.strftime("%M") }} {{ post.posted_date.strftime("%p") }}</small></p>
+                <h5 class="card-title"><a class="link post-title" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">{{ post.title }}</a></h5>
                 {% if post.post|length > 300 %}
                     <p class="card-text article-content">{{ post.post[0:300] }}...<a class="link read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">read more</a></p>
                 {% else %}
                     <p class="card-text article-content">{{ post.post }}</p>
                 {% endif %}
-                <p class="card-text"><small class="text-muted">Posted on {{ post.posted_date.strftime("%d / %m / %Y") }} at {{ post.posted_date.strftime("%-I")|int + 2 }} : {{ post.posted_date.strftime("%M") }} {{ post.posted_date.strftime("%p") }}</small></p>
 
                 {% if current_user.is_authenticated %}
                     <div class="container">
-                        <a class="btn btn-outline-warning" href="{{ url_for('update', post_id=post.id) }}">Update</a>
-                        <a class="btn btn-outline-danger" href="{{ url_for('delete', post_id=post.id) }}">Delete</a>
+                        <a class="btn" href="{{ url_for('update', post_id=post.id) }}">Update</a>
+                        <a class="btn" href="{{ url_for('delete', post_id=post.id) }}">Delete</a>
                     </div>
                 {% endif %}
             </div>

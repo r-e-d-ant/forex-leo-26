@@ -1,5 +1,4 @@
 
-
 # ======= IS THERE =======
 
 from forex_24_app.models import Admin, Post, Post_Signals

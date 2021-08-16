@@ -1,0 +1,61 @@
+
+<!-- ============== IS THERE =================== -->
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-section">
+    <div class="container">
+        <div class="form-group">
+            <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group mt-3">
+                {{ form.name.label(class="form-control-label mb-2") }}
+                {% if form.name.errors %}
+                {{ form.name(class="form-control is-invalid") }}
+                {% for error in form.name.errors %}
+                <div class="invalid-feedback">
+                    <span> {{ error }} </span>
+                </div>
+                {% endfor %}
+                {% else %}
+                {{ form.name(class="form-control") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group mt-3">
+                {{ form.password.label(class="form-control-label mb-2") }}
+                {% if form.password.errors %}
+                {{ form.password(class="form-control is-invalid") }}
+                {% for error in form.password.errors %}
+                <div class="invalid-feedback">
+                    <span> {{ error }} </span>
+                </div>
+                {% endfor %}
+                {% else %}
+                {{ form.password(class="form-control") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group mt-3">
+                {{ form.confirm_password.label(class="form-control-label mb-2") }}
+                {% if form.confirm_password.errors %}
+                {{ form.confirm_password(class="form-control is-invalid") }}
+                {% for error in form.confirm_password.errors %}
+                <div class="invalid-feedback">
+                    <span> {{ error }} </span>
+                </div>
+                {% endfor %}
+                {% else %}
+                {{ form.confirm_password(class="form-control") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group mt-3">
+                {{ form.save_button(class="btn btn-outline-dark") }}
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

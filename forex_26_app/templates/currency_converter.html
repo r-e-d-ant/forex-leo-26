@@ -1,0 +1,69 @@
+
+<!-- ============== IS THERE =================== -->
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row" style="margin-top: 4em;">
+
+    <div class="col-sm-2">
+
+    </div>
+    <div class="content-section col-sm-8">
+        <h3>Currency Converter</h3>
+            <p class='text-muted'>You can convert any currency you want on that section below.</p>
+            <ul class="list-group">
+                <form action="" method="POST">
+                <li class="list-group-item list-group-item-light">
+                    <div class="row">
+                        <div class="col">
+                            <input class="form-control" type="number" name="amount" placeholder="1">
+                        </div>
+                        <div class="col">
+                            <select class="form-select" name="currencyID_from" id="currency-id">
+                                
+                                {% for k, v in infos %}
+                                <option value={{ k }}>{{ k }} - {{ v }}</option>
+                                {% endfor %}
+                            
+                            </select>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="list-group-item list-group-item-light">
+                    <div class="row">
+                        <div class="col">
+                            <span class="form-control disabled text-center">To</span>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" name="currencyID_to" id="currency-id">
+                                
+                                {% for k, v in infos %}
+                                <option value={{ k }}>{{ k }} - {{ v }}</option>
+                                {% endfor %}
+                            
+                            </select>
+                        </div>
+                    </div>
+                </li>
+            <div class="col form-group">
+                {% if result != 0%}
+                <li class="list-group-item list-group-item-light">
+                    <input class="btn btn-outline-dark form-control" type="submit" value="calculate">
+                </li>
+                <li class="list-group-item list-group-item-light" style="text-align: center;">{{ result }}</li>
+                <li class="list-group-item list-group-item-light" style="text-align: center;">On rate of {{ rate }}</li>
+                {% else %}
+                <li class="list-group-item list-group-item-light">
+                    <input class="btn btn-outline-dark form-control" type="submit" value="calculate">
+                </li>
+                <li class="list-group-item list-group-item-light" style="text-align: center;opacity: 0;">.</li>
+                <li class="list-group-item list-group-item-light" style="text-align: center;opacity: 0;">.</li>
+                {% endif %}
+            </div>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -46,6 +46,9 @@ li {
 header {
     background-color: #e4f6ff;
     box-shadow: 5px 5px 30px rgb(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .navbar-nav {
     margin-top: 1.5rem;
@@ -67,6 +70,11 @@ header {
     display: flex;
     align-items: center;
     background-color: #263238;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .nav__link {
     transition: .5s;

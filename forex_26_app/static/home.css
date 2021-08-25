@@ -75,7 +75,7 @@
 	height: auto;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
-	margin-right: 1.3rem;
+	margin-bottom: 1.3rem;
 }
 
 .news-title-summary-latest {
@@ -115,6 +115,8 @@
 		border-top-right-radius: 0;
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
+		margin-right: 1.3rem;
+		margin-bottom: 0;
 	}
 	.news-title-summary-latest {
 		max-width: 30rem;

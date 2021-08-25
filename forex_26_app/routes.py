@@ -124,13 +124,15 @@ def logout():
     return redirect(url_for('login')) # redirect to login page
 
 
+
 # ====================== HOME ROUTE ==============
 @app.route('/')
 @app.route('/home')
 def home():
-	date = datetime.utcnow() # get current date
-	posts = Post.query.order_by(Post.posted_date.desc()) # query post by posted date.
-	return render_template('home.html', title="Home", posts=posts, date=date)
+    date = datetime.utcnow() # get current date
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.posted_date.desc()).paginate(page=page, per_page=6) # query post by posted date.
+    return render_template('home.html', title="Home", posts=posts, date=date)
 
 # ====================== SIGNAL POSTS ROUTE ==============
 @app.route('/signals')

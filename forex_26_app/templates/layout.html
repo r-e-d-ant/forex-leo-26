@@ -21,8 +21,8 @@
 
     <!-- •••••••••• -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico')}}">
-    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='home.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
     <!-- HEAD SCRIPT -->
     {% if title %}
         <title>{{ title }}</title>
@@ -73,52 +73,58 @@
       <i class='bx bx-x'></i>
     </div>
 </header>
-    <main class="container">
-        <div class="">
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-            {% endwith %}
-        </div>
-        {% block content %}{% endblock %}
-      </main>
+<main class="container">
+  <div class="">
+    {% with messages = get_flashed_messages(with_categories=true)%}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
 
-    <footer class="footer">
-      <div class="top-footer">
-        <div class="cp-credit">
-          <p>© 2021 "Forex Leo 26" All rights reserved</p>
-        </div>
-          {% if not current_user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('contact') }}">contact</a>
-          </li>
-          {% endif %}
-  
-          <ul class="social-footer-ul">
-            <li>
-              <a href="https://t.me/forexleo24" target="_blank">
-                
-              </a>
-            </li>
-    
-            <li>
-              <a href="https://www.instagram.com/forex_leo24/" target="_blank">
-                
-              </a>
-            </li>
-          </ul>
-      </div>
+{% block content %}{% endblock %}
+</main>
 
-      <div class="name">
-        <span class="built_by text-muted">built by <a class="link my__name" style="text-decoration: none;" href="https://www.thierrymugisha.me" target="_blank">Thierry M.</a></span>
-      </div>
-    </footer>
-  <!---MYJS-->
-  <script src="{{ url_for('static', filename='main.js') }}"></script>
+<footer class="footer">
+  <div class="top-footer">
+    <ul class="footer-items">
+      <li class="footer-item">
+        <a class="nav-link-footer pos-relative" href="#">Terms and Conditions</a>
+      </li>
+      {% if not current_user.is_authenticated %}
+      <li class="footer-item">
+        <a class="nav-link-footer pos-relative" href="{{ url_for('contact') }}">Contact Us</a>
+      </li>
+      {% endif %}
+    </ul>
+    <ul class="social-footer-ul">
+      <li class="social-item">
+        <a href="https://t.me/forexleo24" target="_blank">
+          <i class="bx bxl-twitter"></i>
+        </a>
+      </li>
+      <li class="social-item">
+        <a href="https://t.me/forexleo24" target="_blank">
+          <i class="bx bxl-twitter"></i>
+        </a>
+      </li>
+      <li class="social-item">
+        <a href="https://www.instagram.com/forex_leo24/" target="_blank">
+          <i class="bx bxl-instagram"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="end-footer">
+    <span class="copyright text-muted">© 2021 "Forex Leo 26" All rights reserved</span>
+    <span class="built_by text-muted">Developed by <a class="my__name" href="https://www.thierrymugisha.me" target="_blank">Thierry M.</a></span>
+  </div>
+</footer>
+<!--- MYJS -->
+<script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>

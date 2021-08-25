@@ -1,53 +1,46 @@
 
-<!-- ============== IS THERE =================== -->
-
 {% extends "layout.html" %}
 
 {% block content %}
-    <article class="">
-        {% for post in posts %}
-        {% if post.image != 'default.jpg' %}
-        <div class="card">
-            <div class="card-body">
-                <img class="overview-image" alt="image" src="{{ url_for('static', filename='photos/' + post.image) }}">
-                <small class="date-posted">{{ post.posted_date.strftime("%B %d, %Y") }}, {{ post.posted_date.strftime("%-I")|int + 2 }} : {{ post.posted_date.strftime("%M") }} {{ post.posted_date.strftime("%p") }}</small>
-
-                <h5 class="card-title"><a class="link post-title" href="{{ url_for('post', post_title=post.title, post_id=post.id) }}">{{ post.title }}</a></h5>
-                {% if post.post|length > 50 %}
-                    <p class="card-text article-content">{{ post.post[0:50] }}...<a class="link read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">read more</a></p>
-                {% else %}
-                    <p class="card-text article-content">{{ post.post }}</p>
-                {% endif %}
-
-                {% if current_user.is_authenticated %}
-                    <div class="">
-                        <a class="btn" href="{{ url_for('update', post_id=post.id) }}">Update</a>
-                        <a class="btn" href="{{ url_for('delete', post_id=post.id) }}">Delete</a>
-                    </div>
-                {% endif %}
-            </div>
+<div class="news-cards-container">
+    {% for post in posts %}
+    {% if post.image != 'default.jpg' %}
+    <div class="news-card">
+        <img class="overview-image" alt="" src="{{ url_for('static', filename='photos/' + post.image) }}">
+        <div class="news-summary-container">
+            <span class="text-muted date-posted">February 20, 2021</span>
+            <h2 class="news-title-summary">
+                <a class="news-title-summary-link" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">{{ post.title }}</a>
+            </h2>
+            {% if post.post|length > 100 %}
+            <p class="summary">
+                {{ post.post[0:100] }}..
+                <a class="link read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">more</a>
+            </p>
+            {% else %}
+            <p class="summary">{{ post.post }}</p>
+            {% endif %}
         </div>
-        {% else %}
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text"><small class="text-muted">{{ post.posted_date.strftime("%B %d, %Y") }}, {{ post.posted_date.strftime("%-I")|int + 2 }}:{{ post.posted_date.strftime("%M") }} {{ post.posted_date.strftime("%p") }}</small></p>
-                <h5 class="card-title"><a class="link post-title" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">{{ post.title }}</a></h5>
-                {% if post.post|length > 300 %}
-                    <p class="card-text article-content">{{ post.post[0:300] }}...<a class="link read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">read more</a></p>
-                {% else %}
-                    <p class="card-text article-content">{{ post.post }}</p>
-                {% endif %}
-
-                {% if current_user.is_authenticated %}
-                    <div class="container">
-                        <a class="btn" href="{{ url_for('update', post_id=post.id) }}">Update</a>
-                        <a class="btn" href="{{ url_for('delete', post_id=post.id) }}">Delete</a>
-                    </div>
-                {% endif %}
-            </div>
+    </div>
+    {% else %}
+    <div class="news-card">
+        <img class="overview-image" alt="" src="{{ url_for('static', filename='photos/default.jpg') }}">
+        <div class="news-summary-container">
+            <span class="text-muted date-posted">February 20, 2021</span>
+            <h2 class="news-title-summary">
+                <a class="news-title-summary-link" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">{{ post.title }}</a>
+            </h2>
+            {% if post.post|length > 100 %}
+            <p class="summary">
+                {{ post.post[0:100] }}..
+                <a class="link read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">more</a>
+            </p>
+            {% else %}
+            <p class="summary">{{ post.post }}</p>
+            {% endif %}
         </div>
-        {% endif  %}
-        {% endfor %}
-    </article>
+    </div>
+    {% endif  %}
+{% endfor %}
 </div>
 {% endblock %}

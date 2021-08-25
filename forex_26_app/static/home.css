@@ -4,7 +4,15 @@
 	align-items: flex-start;
 	justify-content: center;
 	flex-wrap: wrap;
-	gap: 2rem;
+	column-gap: 2rem;
+	row-gap: .5rem;
+}
+
+@media screen and (min-width: 1024px) {
+	.news-cards-container {
+		column-gap: 3rem;
+		row-gap: .5rem;
+	}
 }
 
 .news-card {
@@ -40,3 +48,37 @@
 	max-width: 19rem;
 	margin-top: .8rem;
 }
+
+.paginations {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 1.3rem;
+	margin-top: 3rem;
+}
+
+.btn-pagination, .btn-pagination-out {
+	font-size: 1.2rem;
+	padding: .4rem 1.1rem;
+	border-radius: 5px;
+}
+.btn-pagination {
+	background-color: var(--primary-clr);
+	border: thin solid var(--primary-clr);
+	color: var(--white-clr);
+}
+.btn-pagination-out {
+	border: thin solid var(--primary-clr);
+	color: var(--primary-clr);
+}
+
+
+
+
+
+
+
+
+
+

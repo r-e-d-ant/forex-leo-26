@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="news-cards-container">
-    {% for post in posts %}
+    {% for post in posts.items %}
     {% if post.image != 'default.jpg' %}
     <div class="news-card">
         <img class="overview-image" alt="" src="{{ url_for('static', filename='photos/' + post.image) }}">
@@ -42,5 +42,18 @@
     </div>
     {% endif  %}
 {% endfor %}
+</div>
+<div class="paginations">
+    {% for page_num in posts.iter_pages() %}
+    {% if page_num %}
+    {% if posts.page == page_num %}
+    <a class='btn btn-pagination' href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+    {% else %}
+    <a class='btn-pagination-out' href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+    {% endif %}
+    {% else %}
+    ...
+    {% endif %}
+    {% endfor %}
 </div>
 {% endblock %}

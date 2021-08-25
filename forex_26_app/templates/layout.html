@@ -51,23 +51,23 @@
         
         {% if current_user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav__link"  href="{{ url_for('feedback') }}">Feedbacks</a>
+          <a class="nav-link"  href="{{ url_for('feedback') }}">Feedbacks</a>
         </li>
 
-        <li class="nav__item">
-          <a href="{{ url_for('logout') }}" class="link nav__link">Logout</a>
+        <li class="nav-item">
+          <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
         </li>
 
         <li class="dropdown">
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{ url_for('new_post') }}">New Learn Forex</a>
-            <a class="dropdown-item" href="{{ url_for('create_post_signals') }}">New Signal</a>
+            <a class="nav-link" href="{{ url_for('new_post') }}">New Learn Forex</a>
+            <a class="nav-link" href="{{ url_for('create_post_signals') }}">New Signal</a>
           </div>
         </li>
         {% endif %}
       </ul>
     </nav>
-    
+
     <div class="nav-icons">
       <i class='bx bx-menu'></i>
       <i class='bx bx-x'></i>

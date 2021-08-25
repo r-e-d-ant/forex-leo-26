@@ -22,6 +22,12 @@ a {
 li {
     list-style: none;
 }
+.list {
+    list-style: none;
+}
+.link {
+    text-decoration: none;
+}
 
 .uppercase__case {
     text-transform: uppercase;
@@ -34,73 +40,26 @@ li {
 
 /* ==================== NAVBAR ================ */
 
-.brand__style {
+.logo {
     font-family: 'Orbitron', sans-serif;
 }
-
-.navbar {
-    background-color:#263238;
-    padding: 20px 0;
-    font-family: 'Poppins', sans-serif;
-}
 header {
-    background-color: #e4f6ff;
-    box-shadow: 5px 5px 30px rgb(0, 0, 0, 0.3);
+    background-color: #253237;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.navbar-nav {
-    margin-top: 1.5rem;
-}
-.nav__bar {
-    background-color: #263238;
-    padding: 1em 2em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.brand__name {
-    color: #f4f4f4;
-    text-transform: uppercase;
-    font-size: 1.5em;
-}
-.nav__menu {
-    transition: .5s;
-    display: flex;
-    align-items: center;
-    background-color: #263238;
+.nav-bar {
+    display: none;
 }
 .nav-links {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.nav__link {
-    transition: .5s;
-    color: #f4f4f4;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-}
-.nav__link:hover {
-    color: #ebe7e7;
-}
-.nav__item {
-    transition: .5s;
-    margin-bottom: 1.5em;
-    margin-right: 0;
-}
-.nav__item:hover {
-    transform: translateY(.2em);
-}
 
-/* ======== CLASSESS ========= */
-.list {
-    list-style: none;
-}
-.link {
-    text-decoration: none;
-}
+
+
 
 /* ==================== OTHERS ================ */
 .notify__btn {

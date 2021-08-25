@@ -2,9 +2,34 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<!-- Latest Posts -->
+
+<div class="latest_post-container">
+    <div class="latest_post">
+        <img class="overview-image-latest" alt="" src="{{ url_for('static', filename='photos/' + posts.items[0].image) }}">
+        <div class="news-summary-container">
+            <span class="text-muted date-posted">February 20, 2021</span>
+
+            <h2 class="news-title-summary news-title-summary-latest">
+                <a class="news-title-summary-link" href="{{ url_for('post', post_title=posts.items[0].title, post_id=posts.items[0].id ) }}">{{ posts.items[0].title }}</a>
+            </h2>
+            
+            {% if posts.items[0].post|length > 400 %}
+            <p class="summary summary-latest">
+                {{ posts.items[0].post[0:400] }}..
+                <a class="read__more" href="{{ url_for('post', post_title=posts.items[0].title, post_id=posts.items[0].id ) }}">more</a>
+            </p>
+            {% else %}
+            <p class="summary summary-latest">{{ posts.items[0].post }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- All Posts -->
+
 <div class="news-cards-container">
     {% for post in posts.items %}
-    {% if post.image != 'default.jpg' %}
     <div class="news-card">
         <img class="overview-image" alt="" src="{{ url_for('static', filename='photos/' + post.image) }}">
         <div class="news-summary-container">
@@ -22,25 +47,6 @@
             {% endif %}
         </div>
     </div>
-    {% else %}
-    <div class="news-card">
-        <img class="overview-image" alt="" src="{{ url_for('static', filename='photos/default.jpg') }}">
-        <div class="news-summary-container">
-            <span class="text-muted date-posted">February 20, 2021</span>
-            <h2 class="news-title-summary">
-                <a class="news-title-summary-link" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">{{ post.title }}</a>
-            </h2>
-            {% if post.post|length > 100 %}
-            <p class="summary">
-                {{ post.post[0:100] }}..
-                <a class="read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">more</a>
-            </p>
-            {% else %}
-            <p class="summary">{{ post.post }}</p>
-            {% endif %}
-        </div>
-    </div>
-    {% endif  %}
 {% endfor %}
 </div>
 <div class="paginations">

@@ -19,6 +19,7 @@
     --gray-clr: #EEF0F1;
     --text-mute: #899194;
     --white-clr: #F9FAFB;
+    --link-clr: #056A80;
 }
 
 /* ==================== BASE ================ */
@@ -195,14 +196,52 @@ header {
 }
 .bxl-twitter,
 .bxl-instagram {
-    color: var(--primary-clr);
+    color: var(--primary-clr-alt);
     font-size: 1.8rem;
+}
+.bxl-twitter:hover,
+.bxl-instagram:hover {
+    color: var(--primary-clr);
+}
+
+.end-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .copyright {
     margin-bottom: .5rem;
 }
 .copyright, .built_by {
     font-size: .9rem;
+}
+.my__name {
+    color: var(--link-clr);
+}
+.my__name:hover {
+    color: var(--second-clr);
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 768px){
+    .footer-items {
+        flex-direction: row;
+    }
+    .footer-item {
+        margin: 0 1rem;
+    }
+    .bxl-twitter,
+    .bxl-instagram {
+        font-size: 1.5rem;
+    }
+    .copyright,
+    .built_by {
+        font-size: .6rem;
+    }
+    .copyright {
+        margin-bottom: .6rem;
+    }
 }
 
 

@@ -15,7 +15,7 @@
             {% if post.post|length > 100 %}
             <p class="summary">
                 {{ post.post[0:100] }}..
-                <a class="link read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">more</a>
+                <a class="read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">more</a>
             </p>
             {% else %}
             <p class="summary">{{ post.post }}</p>
@@ -33,7 +33,7 @@
             {% if post.post|length > 100 %}
             <p class="summary">
                 {{ post.post[0:100] }}..
-                <a class="link read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">more</a>
+                <a class="read__more" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">more</a>
             </p>
             {% else %}
             <p class="summary">{{ post.post }}</p>

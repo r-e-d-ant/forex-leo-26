@@ -54,6 +54,7 @@
 	color: var(--primary-clr-alt);
 	max-width: 19rem;
 	margin-top: .8rem;
+	line-height: 1.3rem;
 }
 
 /* ------ LATEST POSTS ------ */

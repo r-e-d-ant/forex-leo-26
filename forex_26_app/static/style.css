@@ -1,5 +1,4 @@
 /* FONT FAMILY*/
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap'); /* Indie Flower */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap'); /* Orbit */
 
 *,
@@ -66,6 +65,24 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1.2rem 2rem;
+}
+@media screen and (min-width: 1400px){
+    .container {
+        padding: 1.2rem 10rem;
+    }
+
+    header {
+        padding: 1.5rem 10rem;
+    }
+}
+@media screen and (min-width: 2000px){
+    .container {
+        padding: 1.2rem 30rem;
+    }
+
+    header {
+        padding: 1.5rem 30rem;
+    }
 }
 .logo {
     font-family: 'Orbitron', sans-serif;

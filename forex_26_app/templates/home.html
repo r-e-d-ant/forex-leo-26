@@ -4,11 +4,12 @@
 {% block content %}
 <!-- Latest Posts -->
 
+{% if posts.page == 1 %}
 <div class="latest_post-container">
     <div class="latest_post">
         <img class="overview-image-latest" alt="" src="{{ url_for('static', filename='photos/' + posts.items[0].image) }}">
         <div class="news-summary-container">
-            <span class="text-muted date-posted">February 20, 2021</span>
+            <span class="text-muted date-posted">{{ posts.items[0].posted_date.strftime("%B %d, %Y") }}</span>
 
             <h2 class="news-title-summary news-title-summary-latest">
                 <a class="news-title-summary-link" href="{{ url_for('post', post_title=posts.items[0].title, post_id=posts.items[0].id ) }}">{{ posts.items[0].title }}</a>
@@ -25,6 +26,7 @@
         </div>
     </div>
 </div>
+{% endif %}
 
 <!-- All Posts -->
 
@@ -33,7 +35,7 @@
     <div class="news-card">
         <img class="overview-image" alt="" src="{{ url_for('static', filename='photos/' + post.image) }}">
         <div class="news-summary-container">
-            <span class="text-muted date-posted">February 20, 2021</span>
+            <span class="text-muted date-posted">{{ post.posted_date.strftime("%B %d, %Y") }}</span>
             <h2 class="news-title-summary">
                 <a class="news-title-summary-link" href="{{ url_for('post', post_title=post.title, post_id=post.id ) }}">{{ post.title }}</a>
             </h2>

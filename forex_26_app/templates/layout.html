@@ -15,8 +15,14 @@
     <meta name="twitter:title" content="Forex Leo 24">
     <meta name="twitter:description" content="Forex trading news and Signals updates">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/r-e-d-ant/Body-Mass-Index/master/link_overview_fav.jpg">
+
+    <!-- Icons links -->
+    <link href="{{ url_for('static', filename='boxicons-2.0.9/css/boxicons.min.css') }}" rel="stylesheet">
+
+    <!-- •••••••••• -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico')}}">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='home.css') }}" rel="stylesheet">
     <!-- HEAD SCRIPT -->
     {% if title %}
         <title>{{ title }}</title>
@@ -27,6 +33,7 @@
 <body>
   <header>
     <a class="logo" href="{{url_for('home')}}">FX<b>leo26</b></a>
+
     <nav class="nav-bar">
       <ul class="nav-links">
         <!-- link 1 -->
@@ -44,22 +51,27 @@
         
         {% if current_user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav__link"  href="{{ url_for('feedback') }}">Feedbacks</a>
+          <a class="nav-link"  href="{{ url_for('feedback') }}">Feedbacks</a>
         </li>
 
-        <li class="nav__item">
-          <a href="{{ url_for('logout') }}" class="link nav__link">Logout</a>
+        <li class="nav-item">
+          <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
         </li>
 
         <li class="dropdown">
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{ url_for('new_post') }}">New Learn Forex</a>
-            <a class="dropdown-item" href="{{ url_for('create_post_signals') }}">New Signal</a>
+            <a class="nav-link" href="{{ url_for('new_post') }}">New Learn Forex</a>
+            <a class="nav-link" href="{{ url_for('create_post_signals') }}">New Signal</a>
           </div>
         </li>
         {% endif %}
       </ul>
     </nav>
+
+    <div class="nav-icons">
+      <i class='bx bx-menu'></i>
+      <i class='bx bx-x'></i>
+    </div>
 </header>
     <main class="container">
         <div class="">

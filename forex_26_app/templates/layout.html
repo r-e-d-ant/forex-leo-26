@@ -22,6 +22,7 @@
     <!-- •••••••••• -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico')}}">
     <link href="{{ url_for('static', filename='home.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='post.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
     <!-- HEAD SCRIPT -->
     {% if title %}
@@ -90,18 +91,23 @@
 </main>
 
 <footer class="footer">
-  <div class="top-footer">
-    <ul class="footer-items">
-      <li class="footer-item">
-        <a class="nav-link-footer pos-relative" href="#">Terms and Conditions</a>
+  <div class="end-footer">
+    <span class="copyright text-muted">© 2021 "Forex Leo 26" All rights reserved</span>
+    <span class="built_by text-muted">Developed by <a class="my__name" href="https://www.thierrymugisha.me" target="_blank">Thierry M.</a></span>
+  </div>
+
+  <ul class="footer-items">
+    <li class="footer-item">
+      <a class="nav-link-footer pos-relative" href="#">Terms and Conditions</a>
       </li>
       {% if not current_user.is_authenticated %}
       <li class="footer-item">
         <a class="nav-link-footer pos-relative" href="{{ url_for('contact') }}">Contact Us</a>
       </li>
       {% endif %}
-    </ul>
-    <ul class="social-footer-ul">
+  </ul>
+
+  <ul class="social-footer-ul">
       <li class="social-item">
         <a href="https://t.me/forexleo24" target="_blank">
           <i class="bx bxl-twitter"></i>
@@ -117,12 +123,7 @@
           <i class="bx bxl-instagram"></i>
         </a>
       </li>
-    </ul>
-  </div>
-  <div class="end-footer">
-    <span class="copyright text-muted">© 2021 "Forex Leo 26" All rights reserved</span>
-    <span class="built_by text-muted">Developed by <a class="my__name" href="https://www.thierrymugisha.me" target="_blank">Thierry M.</a></span>
-  </div>
+  </ul>
 </footer>
 <!--- MYJS -->
 <script src="{{ url_for('static', filename='main.js') }}"></script>

@@ -169,6 +169,16 @@
 	background-color: var(--gray-clr);
 }
 
+/* styles when there is no Post */
+.no-post__warning {
+	color: var(--primary-clr);
+	font-size: 1.4rem;
+}
+.no-post__warning a {
+	color: var(--link-clr);
+	font-size: 1.4rem;
+}
+
 
 
 

@@ -35,18 +35,22 @@ class Post(db.Model):
     def __repr__(self):
         return f"Post('{ self.image }', '{ self.title }', '{ self.post }')"
 
-# ====================== POST SIGNAL TABLE ==============    
+# ====================== POST SIGNAL TABLE ==============
+
 class Post_Signals(db.Model):
-    id = db.Column(db.Integer, nullable=False, primary_key = True)
-    image = db.Column(db.String(30), nullable=False, default = "default.jpg")
-    title = db.Column(db.String(100), nullable=False)
-    post = db.Column(db.Text, nullable=False)
-    posted_date = db.Column(db.DateTime, nullable=False, default = datetime.utcnow)
-    
-    user = db.Column(db.Integer, db.ForeignKey('admin.id'), nullable = False)
-    
+    id = db.Column(db.Integer, nullable=False, primary_key=True)
+    signal_action = db.Column(db.String(20), nullable=False)
+    currencies = db.Column(db.String(20), nullable=False)
+    profit = db.Column(db.String(20), nullable=False)
+    loss = db.Column(db.String(20), nullable=False)
+    price = db.Column(db.String(20))
+    posted_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    user = db.Column(db.Integer, db.ForeignKey('admin.id'), nullable=False)
+
     def __repr__(self):
-        return f"Post('{ self.image }', '{ self.title }', '{ self.post }')"
+        return f"Signal Post('{ self.signal_action }', '{ self.currencies }', '{ self.profit }', '{ self.loss }', '{ self.price }', '{ self.posted_date }')"
+
 
 # ====================== FEEDBACK TABLE ==============     
 class Feedback(db.Model):

@@ -2,6 +2,42 @@
 
 {% extends "layout.html" %}
 
+
+{% block content %}
+<main class="signals-main">
+    <h2>Open</h2>
+
+    <div class="signals-cards-container">
+        <div class="signal-card">
+            <div class="upper-side">
+                <span class="call-to-buy-txt">BUY</span>
+                <div class="currency-name-container">
+                    <h3 class="currency-name"></h3>
+                    <i class="bx bx-check"></i>
+                </div>
+
+                <div class="time-container">
+                    <h4 class="time-open-txt">Open:</h4>
+                    <span class="time-n-date-txt"></span>
+                </div>
+            </div>
+
+
+            <div class="down-side">
+                <div class="left-side">
+                    <h4 class="profit-loss-txt">Take a Profit</h4>
+                    <h4 class="profit-loss-txt">Stop Loss</h4>
+                </div>
+                <div class="right-side">
+                    <span class="price-txt"></span>
+                    <span class="price-number"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
 {% block content %}
 <article class="posts_article pt-5">
         {% for post in posts_signals %}

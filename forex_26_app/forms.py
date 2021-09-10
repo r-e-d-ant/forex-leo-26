@@ -62,16 +62,14 @@ class UpdatePostForm(FlaskForm):
 
 # ====================== SIGNAL POST FORM ============== 
 class PostSignalForm(FlaskForm):
-    image = FileField("Photo", validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
-    title = StringField("Title", validators=[DataRequired(), Length(min=5, max=100)])
-    post = TextAreaField("Main post", validators=[DataRequired(), Length(min=10)])
-    date_posted = StringField("Date", validators=[DataRequired()])
-    post_button = SubmitField("Post")
+    signal_action_form = StringField("Signal Action", validators=[DataRequired(), Length(min=1, max=50)])
+    currencies_form = StringField("currencies", validators=[DataRequired(), Length(min=1, max=50)])
+    profit_form = StringField("Take a Profit", validators=[DataRequired(), Length(min=1, max=50)])
+    loss_form = StringField("Stop Loss", validators=[DataRequired(), Length(min=1, max=50)])
+    price_form = StringField("price(Optional)", validators=[DataRequired(), Length(min=1, max=50)])
+    date_posted = StringField("Open at", validators=[DataRequired()])
     
-    def validate_title(self, title):
-        postTitle = Post_Signals.query.filter_by(title=title.data).first()
-        if postTitle:
-            raise ValidationError("Sorry, Title similar to this is already posted.")
+    post_button = SubmitField("Post")
 
 # ====================== UPDATE SIGNAL POST FORM ==============         
 class UpdatePostSignalForm(FlaskForm):
@@ -81,3 +79,6 @@ class UpdatePostSignalForm(FlaskForm):
     date_posted = StringField("Date", validators=[DataRequired()])
     
     post_button = SubmitField("Update")
+
+
+

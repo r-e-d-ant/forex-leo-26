@@ -4,6 +4,7 @@
 {% block content %}
 <!-- Latest Posts -->
 
+{% if posts.items|length > 0 %}
 {% if posts.page == 1 %}
 <div class="latest_post-container">
     <div class="latest_post">
@@ -64,4 +65,11 @@
     {% endif %}
     {% endfor %}
 </div>
+{% else %}
+{% if current_user.is_authenticated %}
+<h1 class="no-post__warning">No Post Yet <a class="nav-link" href="{{ url_for('new_post') }}">Create a post in learn forex</a> or <a class="nav-link" href="{{ url_for('create_post_signals') }}">Create a post in signals</a></h1>
+{% else %}
+<h1 class="no-post__warning">No Post Yet</h1>
+{% endif %}
+{% endif%}
 {% endblock %}

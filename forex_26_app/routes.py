@@ -188,18 +188,29 @@ def new_post():
 def create_post_signals():
     form = PostSignalForm()
     if form.validate_on_submit():
-        if form.image.data:
-            picture_file = save_picture(form.image.data)
-            post = Post_Signals(image=picture_file, title=form.title.data, post=form.post.data, author=current_user)
+        if form.price_form.data:
+            post = Post_Signals(
+                signal_action=form.signal_action_form.data,
+                currencies=form.currencies_form.data,
+                profit=form.profit_form.data,
+                loss=form.loss_form.data,
+                price=form.price_form.data,
+                author=current_user)
             db.session.add(post)
             db.session.commit()
+
             flash("successfully posted", "success")
             return redirect(url_for("signals"))
         else:
-            post = Post_Signals(title=form.title.data, post=form.post.data, author=current_user)
+            post = Post_Signals(
+                signal_action=form.signal_action_form.data,
+                currencies=form.currencies_form.data,
+                profit=form.profit_form.data,
+                loss=form.loss_form.data,
+                author=current_user)
             db.session.add(post)
             db.session.commit()
-            
+
             flash("successfully posted", "success")
             return redirect(url_for("signals"))
     elif request.method == 'GET':

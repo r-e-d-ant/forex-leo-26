@@ -39,8 +39,8 @@
             </div>
             {% if current_user.is_authenticated %}
                 <div class="container">
-                    <a class="btn btn-outline-warning" href="{{ url_for('update_signal', post_id=post.id) }}">Update</a>
-                    <a class="btn btn-outline-danger" href="{{ url_for('delete_signal', post_id=post.id) }}">Delete</a>
+                    <a class="btn-admin-shw btn-outline-warning" href="{{ url_for('update_signal', post_id=post.id) }}">Update</a>
+                    <a class="btn-admin-shw btn-outline-danger" href="{{ url_for('delete_signal', post_id=post.id) }}">Delete</a>
                 </div>
             {% endif %}
         </div>

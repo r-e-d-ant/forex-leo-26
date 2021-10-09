@@ -4,7 +4,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<section>
+<section class="feedback-section">
     <div class="section-top">
         <h2>Users Feedbacks</h2>
     </div>
@@ -12,11 +12,11 @@
     {% if feedback %}
     <div class="feedback-cards">
         <div class="feedback-card">
-            <div class="card-header-container">
+            <div class="card-header-container feedback-pad">
                 <span class="feedback-usr_name">{{ feedback.name }}</span>
                 <span class="feedback-email">{{ feedback.email }}</span>
             </div>
-            <div class="card-main-container">
+            <div class="card-main-container feedback-pad">
                 <h2 class="feedback-subject">
                     {{ feedback.subject }}
                 </h2>
@@ -24,8 +24,8 @@
                     {{ feedback.message }}
                 </p>
             </div>
-            <span class="feedback-date">{{ feedback.posted_date.strftime("%B %d, %Y") }}</span>
-            <div class="card-footer">
+            <span class="feedback-date feedback-pad">{{ feedback.posted_date.strftime("%B %d, %Y") }}</span>
+            <div class="feedback-footer feedback-pad">
                 <a href="{{ url_for('delete_feedback', feedback_id=feedback.id) }}" class="btn btn-outline-danger">DELETE</a>
             </div>
         </div>

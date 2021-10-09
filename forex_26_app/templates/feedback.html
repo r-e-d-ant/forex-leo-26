@@ -4,26 +4,33 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="pt-5">
+<section class="feedback-section">
+    <div class="section-top">
+        <h2>Users Feedbacks</h2>
+    </div>
     {% for feedback in feedbacks %}
     {% if feedback %}
-        <div class="card mb-3">
-            <div class="card-header">
-                {{ feedback.subject }}
+    <div class="feedback-cards">
+        <div class="feedback-card">
+            <div class="card-header-container feedback-pad">
+                <span class="feedback-usr_name">{{ feedback.name }}</span>
+                <span class="feedback-email">{{ feedback.email }}</span>
             </div>
-            <div class="card-body">
-            <blockquote class="blockquote mb-0">
-                <p>{{ feedback.message }}</p>
-                <div class="blockquote-footer">{{ feedback.name }} - <span class="">{{ feedback.email }}</span></div>
-            </blockquote>
+            <div class="card-main-container feedback-pad">
+                <h2 class="feedback-subject">
+                    {{ feedback.subject }}
+                </h2>
+                <p class="body feedback-body">
+                    {{ feedback.message }}
+                </p>
             </div>
-            <div class="card-footer">
-                <a href="{{ url_for('delete_feedback', feedback_id=feedback.id) }}" class="btn btn-danger">DELETE</a>
+            <span class="feedback-date feedback-pad">{{ feedback.posted_date.strftime("%B %d, %Y") }}</span>
+            <div class="feedback-footer feedback-pad">
+                <a href="{{ url_for('delete_feedback', feedback_id=feedback.id) }}" class="btn btn-outline-danger">DELETE</a>
             </div>
         </div>
-    {% else %}
-        <div class="alert alert-info">There is no feedback yet !</div>
+    </div>
     {% endif %}
-{% endfor %}
-</div>
+    {% endfor %}
+</section>
 {% endblock %}

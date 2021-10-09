@@ -7,98 +7,103 @@
 <h1 class="c-post-descri alert alert-info">Create post in signals.</h1>
 <div class="content-section">
     <div class="container">
-        <div class="form-group mt-3">
-            <form action="" method="POST" enctype="multipart/form-data">
+        <form class="form-groups" action="" method="POST" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
-            <div class="form-group">
-                {{ form.signal_action_form.label(class="form-control-label") }}
-                {% if form.signal_action_form.errors %}
-                {{ form.signal_action_form(class="form-control is-invalid") }}
-                {% for error in form.signal_action_form.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.signal_action_form.label(class="form-control-label") }}
+                    {% if form.signal_action_form.errors %}
+                    {{ form.signal_action_form(class="form-control is-invalid") }}
+                    {% for error in form.signal_action_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.signal_action_form(class="form-control") }}
+                    {% endif %}
                 </div>
-                {% endfor %}
-                {% else %}
-                {{ form.signal_action_form(class="form-control") }}
-                {% endif %}
-            </div>
-
-            <div class="form-group">
-                {{ form.currencies_form.label(class="form-control-label") }}
-                {% if form.currencies_form.errors %}
-                {{ form.currencies_form(class="form-control is-invalid") }}
-                {% for error in form.currencies_form.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
+    
+                <div class="form-group">
+                    {{ form.currencies_form.label(class="form-control-label") }}
+                    {% if form.currencies_form.errors %}
+                    {{ form.currencies_form(class="form-control is-invalid") }}
+                    {% for error in form.currencies_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.currencies_form(class="form-control") }}
+                    {% endif %}
                 </div>
-                {% endfor %}
-                {% else %}
-                {{ form.currencies_form(class="form-control") }}
-                {% endif %}
-            </div>
-
-            <div class="form-group">
-                {{ form.profit_form.label(class="form-control-label") }}
-                {% if form.profit_form.errors %}
-                {{ form.profit_form(class="form-control is-invalid") }}
-                {% for error in form.profit_form.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
-                </div>
-                {% endfor %}
-                {% else %}
-                {{ form.profit_form(class="form-control") }}
-                {% endif %}
-            </div>
-
-            <div class="form-group">
-                {{ form.loss_form.label(class="form-control-label") }}
-                {% if form.loss_form.errors %}
-                {{ form.loss_form(class="form-control is-invalid") }}
-                {% for error in form.loss_form.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
-                </div>
-                {% endfor %}
-                {% else %}
-                {{ form.loss_form(class="form-control") }}
-                {% endif %}
-            </div>
-            <div class="form-group">
-                {{ form.price_form.label(class="form-control-label") }}
-                {% if form.price_form.errors %}
-                {{ form.price_form(class="form-control is-invalid") }}
-                {% for error in form.price_form.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
-                </div>
-                {% endfor %}
-                {% else %}
-                {{ form.price_form(class="form-control") }}
-                {% endif %}
             </div>
             
-
-            <div class="form-group">
-                {{ form.date_posted.label(class="form-control-label") }}
-                {% if form.date_posted.errors %}
-                {{ form.date_posted(class="form-control is-invalid") }}
-                {% for error in form.date_posted.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.profit_form.label(class="form-control-label") }}
+                    {% if form.profit_form.errors %}
+                    {{ form.profit_form(class="form-control is-invalid") }}
+                    {% for error in form.profit_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.profit_form(class="form-control") }}
+                    {% endif %}
                 </div>
-                {% endfor %}
-                {% else %}
-                {{ form.date_posted(class="form-control") }}
-                {% endif %}
+    
+                <div class="form-group">
+                    {{ form.loss_form.label(class="form-control-label") }}
+                    {% if form.loss_form.errors %}
+                    {{ form.loss_form(class="form-control is-invalid") }}
+                    {% for error in form.loss_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.loss_form(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.price_form.label(class="form-control-label") }}
+                    {% if form.price_form.errors %}
+                    {{ form.price_form(class="form-control is-invalid") }}
+                    {% for error in form.price_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.price_form(class="form-control") }}
+                    {% endif %}
+                </div>
+                
+    
+                <div class="form-group">
+                    {{ form.date_posted.label(class="form-control-label") }}
+                    {% if form.date_posted.errors %}
+                    {{ form.date_posted(class="form-control form-control-date is-invalid") }}
+                    {% for error in form.date_posted.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.date_posted(class="form-control form-control-date") }}
+                    {% endif %}
+                </div>
             </div>
 
             <div class="form-group">
-                {{ form.post_button(class="btn btn-outline-dark") }}
+                {{ form.post_button(class="btn btn-dark") }}
             </div>
-            </form>
-        </div>
+        </form>
     </div>
 </div>
 {% endblock content %}

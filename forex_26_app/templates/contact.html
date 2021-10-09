@@ -4,87 +4,59 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <!--Section: Contact v.2-->
-<section class="mb-4 p-3">
+<section class="container">
+    <div class="section-top">
+        <!--Section heading-->
+        <h2>Contact us</h2>
+        <!--Section description-->
+        <p>
+            Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within a matter of hours to help you.
+        </p>
+    </div>
 
-    <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
-    <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-        a matter of hours to help you.</p>
+    <div class="section-bottom">
+        <form id="form-groups" action="" method="POST">
 
-    <div class="row">
-
-        <!--Grid column-->
-        <div class="col-md-9 mb-md-0 mb-5 card p-5">
-            <form id="contact-form" action="" method="POST">
-
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <label for="name" class="mb-2">Your name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <label for="email" class="mb-2">Your email</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
+            <!--Grid row-->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name" class="form-control-label">Your name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
                 </div>
-                <!--Grid row-->
 
-                <!--Grid row-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <label for="subject" class="mb-2 mt-2">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="email" class="form-control-label">Your email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
-                <!--Grid row-->
-                <div class="row">
+            </div>
+            <!--Grid row-->
 
-                    <!--Grid column-->
-                    <div class="col-md-12">
+            <!--Grid row-->
+            <div class="form-group">
+                <label for="subject" class="form-control-label">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-control" required>
+            </div>
+            <!--Grid row-->
+            <div class="form-group">
+                <label for="message" class="form-control-label">Your message</label>
+                <textarea type="text" id="message" name="message" class="form-control-article" required></textarea>
+            </div>
+            </div>
+            <!--Grid row-->
+            <input type="submit" class="btn btn-dark" value="SEND">
+        </form>
+    </div>
 
-                        <div class="md-form">
-                            <label for="message" class="mb-2 mt-2">Your message</label>
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea mb-4" required></textarea>
-                        </div>
+    <div class="">
+        <ul class="">
+            <li><i class="bx bx-marker"></i>
+                <p class="mt-3">St. Petersburg, Russia</p>
+            </li>
 
-                    </div>
-                </div>
-                <!--Grid row-->
-                <input type="submit" class="btn btn-primary" value="SEND">
-            </form>
-
-            <div class="status"></div>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-md-3 text-center card pt-5">
-            <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p class="mt-3">St. Petersburg, Russia</p>
-                </li>
-
-                <li><a href="tel:+7349234-07-44"><i class="fas fa-phone mt-4 fa-2x text-black"></i></a>
-                    <p class="mt-3">+7349234-07-44</p>
-                </li>
-            </ul>
-        </div>
+            <li><a href="tel:+7349234-07-44"><i class="bx bx-phone"></i></a>
+                <p class="mt-3">+7349234-07-44</p>
+            </li>
+        </ul>
     </div>
 </section>
 {% endblock %}

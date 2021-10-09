@@ -32,6 +32,7 @@
 body {
     position: relative;
     background-color: var(--white-clr);
+    color: var(--primary-clr);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -60,30 +61,46 @@ li {
 .pos-relative {
     position: relative;
 }
+
 .container {
     padding: 1.2rem 2rem;
 }
 /* -- buttons -- */
+.btn {
+    cursor: pointer;
+    border: none;
+    transition: 300ms color, 300ms border, 300ms background-color;
+    font-size: 1.1rem;
+    padding: .5rem 1rem;
+    margin-top: 1.2rem;
+    border-radius: 5px;
+}
+.btn-admin-shw {
+    padding: .3rem .8rem;
+}
+.btn-dark {
+    color: var(--white-clr);
+    background-color: var(--primary-clr-alt);
+    width: 8rem;
+}
+.btn-dark:hover {
+    background-color: var(--primary-clr);
+}
 .btn-outline-warning {
     background-color: #fff3cd;
     color: #856404;
     border: thin solid #ffeeba;
-    padding: .5rem 1rem;
     margin-right: 1rem;
-    transition: 300ms color, 300ms border, 300ms background-color;
 }
 .btn-outline-warning:hover {
     background-color: #ffc91a;
     color: var(--primary-clr);
     border: thin solid #ffc91a;
-    transition: 300ms color, 300ms border, 300ms background-color;
 }
 .btn-outline-danger {
     background-color: #f8d7da;
     color: #721c24;
     border: thin solid #f5c6cb;
-    padding: .5rem 1rem;
-    transition: 300ms color, 300ms border, 300ms background-color;
 }
 .btn-outline-danger:hover {
     background-color: #d24654;
@@ -209,6 +226,20 @@ header {
     }
 }
 
+/* ----- STYLES OF CONTACT PAGE ------ */
+.section-top {
+    margin-bottom: 3rem;
+    border-bottom: thin solid var(--gray-border-clr);
+    padding-bottom: .3rem;
+}
+.section-top h2 {
+    font-size: 1.8rem;
+    color: var(--primary-clr);
+    margin-bottom: .7rem;
+}
+.section-top p {
+    max-width: 40rem;
+}
 
 /* ==================== FOOTER ================ */
 .footer {

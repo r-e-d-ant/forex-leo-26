@@ -6,24 +6,25 @@
 
 {% if posts.items|length > 0 %}
 {% if posts.page == 1 %}
-<div class="latest_post-container">
-    <div class="latest_post">
-        <img class="overview-image-latest" alt="" src="{{ url_for('static', filename='photos/' + posts.items[0].image) }}">
-        <div class="news-summary-container">
-            <span class="text-muted date-posted">{{ posts.items[0].posted_date.strftime("%B %d, %Y") }}</span>
+<div class="currency_converter-container">
+    <h2>Currency Converter</h2>
+    <div class="currency-converter__card">
+        <div class="currencies-info-container">
+            <p>1 Rwandan franc equals</p>
+            <p>1.97 Burundian franc</p>
+        </div>
+        <span class="today-time"></span>
+        <div class="amount-forms-container">
+            <div class="amount-from-container">
+                <input class="amount-from-form" type="number"></input>
+                <input class="amount-from-form" type="text"></input>
+            </div>
 
-            <h2 class="news-title-summary news-title-summary-latest">
-                <a class="news-title-summary-link" href="{{ url_for('post', post_title=posts.items[0].title, post_id=posts.items[0].id ) }}">{{ posts.items[0].title }}</a>
-            </h2>
-            
-            {% if posts.items[0].post|length > 400 %}
-            <p class="summary summary-latest">
-                {{ posts.items[0].post[0:400] }}..
-                <a class="read__more" href="{{ url_for('post', post_title=posts.items[0].title, post_id=posts.items[0].id ) }}">more</a>
-            </p>
-            {% else %}
-            <p class="summary summary-latest">{{ posts.items[0].post }}</p>
-            {% endif %}
+            <!-- Amount To -->
+            <div class="amount-to-container">
+                <input class="amount-to-form" type="number"></input>
+                <input class="amount-to-form" type="text"></input>
+            </div>
         </div>
     </div>
 </div>

@@ -32,6 +32,14 @@
 	border-top-right-radius: 5px;
 	margin-bottom: 1.3rem;
 }
+@media screen and (min-width: 992px) {
+	.overview-image {
+		width: 350px;
+		height: 237px;
+		background-position: center;
+		object-fit: cover;
+	}
+}
 
 .date-posted {
 	font-size: .8rem;
@@ -76,6 +84,14 @@
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	margin-bottom: 1.3rem;
+}
+@media screen and (min-width: 992px) {
+	.overview-image-latest {
+		width: 400px;
+		height: 315px;
+		background-position: center;
+		object-fit: cover;
+	}
 }
 
 .news-title-summary-latest {

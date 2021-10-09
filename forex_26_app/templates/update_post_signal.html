@@ -7,70 +7,103 @@
 <h1 class="c-post-descri alert alert-info">Update post in signals.</h1>
 <div class="content-section">
     <div class="container">
-        <div class="form-group mt-3">
-            <form action="" method="POST" enctype="multipart/form-data">
+        <form class="form-groups" action="" method="POST" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.signal_action_form.label(class="form-control-label") }}
+                    {% if form.signal_action_form.errors %}
+                    {{ form.signal_action_form(class="form-control is-invalid") }}
+                    {% for error in form.signal_action_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.signal_action_form(class="form-control") }}
+                    {% endif %}
+                </div>
+    
+                <div class="form-group">
+                    {{ form.currencies_form.label(class="form-control-label") }}
+                    {% if form.currencies_form.errors %}
+                    {{ form.currencies_form(class="form-control is-invalid") }}
+                    {% for error in form.currencies_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.currencies_form(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.profit_form.label(class="form-control-label") }}
+                    {% if form.profit_form.errors %}
+                    {{ form.profit_form(class="form-control is-invalid") }}
+                    {% for error in form.profit_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.profit_form(class="form-control") }}
+                    {% endif %}
+                </div>
+    
+                <div class="form-group">
+                    {{ form.loss_form.label(class="form-control-label") }}
+                    {% if form.loss_form.errors %}
+                    {{ form.loss_form(class="form-control is-invalid") }}
+                    {% for error in form.loss_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.loss_form(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.price_form.label(class="form-control-label") }}
+                    {% if form.price_form.errors %}
+                    {{ form.price_form(class="form-control is-invalid") }}
+                    {% for error in form.price_form.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.price_form(class="form-control") }}
+                    {% endif %}
+                </div>
+                
+    
+                <div class="form-group">
+                    {{ form.date_posted.label(class="form-control-label") }}
+                    {% if form.date_posted.errors %}
+                    {{ form.date_posted(class="form-control form-control-date is-invalid") }}
+                    {% for error in form.date_posted.errors %}
+                    <div class="invalid-feedback">
+                        <span> {{ error }} </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.date_posted(class="form-control form-control-date") }}
+                    {% endif %}
+                </div>
+            </div>
+
             <div class="form-group">
-                {{ form.image.label(class="form-control-label") }}
-                {% if form.image.errors %}
-                {{ form.image(class="form-control is-invalid mt-2") }}
-                {% for error in form.image.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
-                </div>
-                {% endfor %}
-                {% else %}
-                {{ form.image(class="form-control mt-2") }}
-                {% endif %}
+                {{ form.post_button(class="btn btn-dark") }}
             </div>
-
-            <div class="form-group mt-3">
-                {{ form.title.label(class="form-control-label") }}
-                {% if form.title.errors %}
-                {{ form.title(class="form-control is-invalid mt-2") }}
-                {% for error in form.title.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
-                </div>
-                {% endfor %}
-                {% else %}
-                {{ form.title(class="form-control mt-2") }}
-                {% endif %}
-            </div>
-
-            <div class="form-group mt-3">
-                {{ form.post.label(class="form-control-label") }}
-                {% if form.post.errors %}
-                {{ form.post(class="form-control is-invalid mt-2") }}
-                {% for error in form.post.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
-                </div>
-                {% endfor %}
-                {% else %}
-                {{ form.post(class="form-control mt-2") }}
-                {% endif %}
-            </div>
-
-            <div class="form-group mt-3">
-                {{ form.date_posted.label(class="form-control-label") }}
-                {% if form.date_posted.errors %}
-                {{ form.date_posted(class="form-control is-invalid mt-2") }}
-                {% for error in form.date_posted.errors %}
-                <div class="invalid-feedback">
-                    <span> {{ error }} </span>
-                </div>
-                {% endfor %}
-                {% else %}
-                {{ form.date_posted(class="form-control mt-2") }}
-                {% endif %}
-            </div>
-
-            <div class="form-group mt-3">
-                {{ form.post_button(class="btn btn-outline-dark") }}
-            </div>
-            </form>
-        </div>
+        </form>
     </div>
 </div>
 {% endblock content %}

@@ -227,10 +227,10 @@ def post(post_title, post_id):
 
 
 # ====================== VIEW SPECIFIC POST FROM SIGNALS ROUTE ==============
-@app.route('/signal-post/<string:signal_post_title>/<int:signal_post_id>', methods=['GET', 'POST'])
-def signal_post(signal_post_title, signal_post_id):
-    signal_admin_post = Post_Signals.query.filter_by(id=signal_post_id).first()
-    return render_template('post_signal.html', title=f"{signal_post_title}", signal_admin_post=signal_admin_post)
+# @app.route('/signal-post/<string:signal_post_title>/<int:signal_post_id>', methods=['GET', 'POST'])
+# def signal_post(signal_post_title, signal_post_id):
+#     signal_admin_post = Post_Signals.query.filter_by(id=signal_post_id).first()
+#     return render_template('post_signal.html', title=f"{signal_post_title}", signal_admin_post=signal_admin_post)
 
 # ====================== CONTACT ROUTE ==============
 @app.route('/contact', methods=['GET', 'POST'])
@@ -290,24 +290,21 @@ def update_signal(post_id):
     post = Post_Signals.query.get(post_id)
     form = UpdatePostSignalForm()
     if form.validate_on_submit():
-        if form.image.data:
-            picture_file = save_picture(form.image.data)
-            post.image = picture_file
-            post.title = form.title.data
-            post.post = form.post.data
-            db.session.commit()
-            flash("Post updated successfully", "success")
-            return redirect(url_for("signals"))
-        else:
-            post.title = form.title.data
-            post.post = form.post.data
-            db.session.commit()
-            flash("Post updated successfully", "success")
-            return redirect(url_for("signals"))
+        post.signal_action = form.signal_action_form.data
+        post.currencies = form.currencies_form.data
+        post.profit = form.profit_form.data
+        post.loss = form.loss_form.data
+        post.price_form = form.price_form.data
+        db.session.commit()
+        flash("Post updated successfully", "success")
+        return redirect(url_for("signals"))
         
     elif request.method == 'GET':
-        form.title.data = post.title
-        form.post.data = post.post
+        form.signal_action_form.data = post.signal_action
+        form.currencies_form.data = post.currencies
+        form.profit_form.data = post.profit
+        form.loss_form.data = post.loss
+        form.price_form.data = post.price
         form.date_posted.data = datetime.utcnow().strftime("%d-%m-%Y")
         
     return render_template('update_post_signal.html', title="Update post signal", form=form)

@@ -73,10 +73,12 @@ class PostSignalForm(FlaskForm):
 
 # ====================== UPDATE SIGNAL POST FORM ==============         
 class UpdatePostSignalForm(FlaskForm):
-    image = FileField("Photo", validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
-    title = StringField("Title", validators=[DataRequired(), Length(min=5, max=100)])
-    post = TextAreaField("Main post", validators=[DataRequired(), Length(min=10)])
-    date_posted = StringField("Date", validators=[DataRequired()])
+    signal_action_form = StringField("Action('buy' or 'sell')", validators=[DataRequired(), Length(min=1, max=50)])
+    currencies_form = StringField("currencies", validators=[DataRequired(), Length(min=1, max=50)])
+    profit_form = StringField("Take a Profit", validators=[DataRequired(), Length(min=1, max=50)])
+    loss_form = StringField("Stop Loss", validators=[DataRequired(), Length(min=1, max=50)])
+    price_form = StringField("price(Optional)", validators=[DataRequired(), Length(min=1, max=50)])
+    date_posted = StringField("Open at", validators=[DataRequired()])
     
     post_button = SubmitField("Update")
 

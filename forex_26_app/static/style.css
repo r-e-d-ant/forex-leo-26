@@ -32,6 +32,7 @@
 body {
     position: relative;
     background-color: var(--white-clr);
+    color: var(--primary-clr);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -73,6 +74,9 @@ li {
     padding: .5rem 1rem;
     margin-top: 1.2rem;
     border-radius: 5px;
+}
+.btn-admin-shw {
+    padding: .3rem .8rem;
 }
 .btn-dark {
     color: var(--white-clr);

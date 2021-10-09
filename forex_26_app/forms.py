@@ -62,7 +62,7 @@ class UpdatePostForm(FlaskForm):
 
 # ====================== SIGNAL POST FORM ============== 
 class PostSignalForm(FlaskForm):
-    signal_action_form = StringField("Signal Action", validators=[DataRequired(), Length(min=1, max=50)])
+    signal_action_form = StringField("Action('buy' or 'sell')", validators=[DataRequired(), Length(min=1, max=50)])
     currencies_form = StringField("currencies", validators=[DataRequired(), Length(min=1, max=50)])
     profit_form = StringField("Take a Profit", validators=[DataRequired(), Length(min=1, max=50)])
     loss_form = StringField("Stop Loss", validators=[DataRequired(), Length(min=1, max=50)])

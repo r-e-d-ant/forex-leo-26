@@ -1,5 +1,7 @@
-/* FONT FAMILY*/
+
+/* FONT FAMILY */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap'); /* Orbit */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap'); /* Mont serrat */
 
 *,
 *::before,
@@ -12,13 +14,17 @@
 
 /* ==================== ROOT ================ */
 :root {
-    --primary-clr: #253237;
-    --primary-clr-alt: #4C565A;
-    --second-clr: #CBA934;
-    --gray-clr: #EEF0F1;
-    --text-mute: #899194;
-    --white-clr: #F9FAFB;
-    --link-clr: #056A80;
+    --primary-clr: hsl(197, 20%, 18%);
+    --primary-clr-alt: hsl(197, 8%, 33%);
+    --second-clr: hsl(46, 59%, 50%);
+    --gray-clr: hsl(200, 10%, 94%);
+    --gray-border-clr: #2532371a;
+    --text-mute: hsl(196, 5%, 56%);
+    --white-clr: hsl(210, 20%, 98%);
+    --link-clr: #05697f;
+    --link-clr-alt: #cfe2e0;
+    --red-clr: #d33b25;
+    --red-clr-alt: #ffd4d8;
 }
 
 /* ==================== BASE ================ */
@@ -26,7 +32,7 @@
 body {
     position: relative;
     background-color: var(--white-clr);
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {

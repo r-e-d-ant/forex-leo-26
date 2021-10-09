@@ -1,20 +1,21 @@
-<!-- ============== IS THERE =================== -->
 
 {% extends "layout.html" %}
 
 
 {% block content %}
-{% for post in posts_signals %}
 <main class="signals-main">
-    <h2>Open</h2>
+    <h2 class="signal-action">Open</h2>
 
     <div class="signals-cards-container">
+        {% for post in posts_signals %}
         <div class="signal-card">
-            <div class="upper-side">
-                <span class="call-to-buy-txt">{{ post.signal_action }}</span>
-                <div class="currency-name-container">
-                    <h3 class="currency-name">{{ post.currencies }}</h3>
-                    <i class='bx bx-up-arrow-alt'></i>
+            <div class="upper-side signal-pad">
+                <div class="signal-information-container">
+                    <span class="call-to-buy-txt">{{ post.signal_action }}</span>
+                    <div class="currency-name-container">
+                        <h3 class="currency-name">{{ post.currencies }}</h3>
+                        <i class='bx bx-up-arrow-alt arrow-sell-buy'></i>
+                    </div>
                 </div>
 
                 <div class="time-container">
@@ -26,10 +27,10 @@
             </div>
 
 
-            <div class="down-side">
+            <div class="down-side signal-pad">
                 <div class="left-side">
-                    <h4 class="profit-loss-txt">Take a Profit <em>{{ post.profit }}</em></h4>
-                    <h4 class="profit-loss-txt">Stop Loss <em>{{ post.loss }}</em></h4>
+                    <h4 class="profit-loss-txt">Take a Profit: <em>{{ post.profit }}</em></h4>
+                    <h4 class="profit-loss-txt">Stop Loss: <em>{{ post.loss }}</em></h4>
                 </div>
                 <div class="right-side">
                     <span class="price-txt">Price</span>
@@ -43,7 +44,7 @@
                 </div>
             {% endif %}
         </div>
+        {% endfor %}
     </div>
 </main>
-{% endfor %}
 {% endblock %}

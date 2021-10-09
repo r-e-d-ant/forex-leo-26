@@ -1,0 +1,122 @@
+
+
+/* -- BASE -- */
+.signal-pad {
+    padding: .5rem .5rem;
+}
+
+/* ------------------ */
+.signal-action {
+    color: var(--primary-clr);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+
+.signals-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.signal-card {
+    border: 1px solid var(--gray-border-clr);
+    border-radius: 10px;
+    width: 304px;
+}
+
+/* -- - -  - upper side -  - - -- */
+.upper-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray-border-clr);
+}
+.signal-information-container {
+    display: flex;
+    align-items: center;
+}
+.call-to-buy-txt {
+    color: var(--link-clr);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: .9rem;
+    background-color: var(--link-clr-alt);
+    padding: .1rem .35rem;
+    border-radius: 3px;
+}
+/* --- --- --- */
+.currency-name-container {
+    display: flex;
+}
+.currency-name {
+    text-transform: uppercase;
+    font-size: .95rem;
+    color: var(--primary-clr);
+    margin-left: .5rem;
+    margin-right: .2rem;
+}
+.arrow-sell-buy {
+    font-size: 1.2rem;
+}
+.bx-up-arrow-alt {
+    color: var(--link-clr);
+}
+.bx-down-arrow-alt {
+    color: var(--red-clr);
+}
+.time-container {
+    display: flex;
+}
+.time-open-txt, .time-n-date-txt {
+    font-size: .8rem;
+    color: var(--primary-clr-alt);
+}
+.time-n-date-txt {
+    margin-left: .2rem;
+}
+
+/* -- - -  - down side -  - - -- */
+.down-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* -- left side -- */
+.left-side {
+    display: flex;
+    flex-direction: column;
+}
+.profit-loss-txt {
+    color: var(--primary-clr-alt);
+    font-size: .9rem;
+    font-weight: 500;
+    margin-bottom: .7rem;
+}
+.profit-loss-txt:last-child {
+    margin-bottom: 0;
+}
+.profit-loss-txt em {
+    font-style: normal;
+}
+
+/* -- right side -- */
+.right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--gray-border-clr);
+    padding: .25rem .5rem;
+}
+.price-txt {
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: .8;
+    color: var(--primary-clr-alt);
+}
+.price-number {
+    color: var(--primary-clr);
+    font-weight: 600;
+}

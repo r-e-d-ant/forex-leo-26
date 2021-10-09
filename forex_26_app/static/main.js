@@ -1,4 +1,7 @@
 
+/* --------============== Navigation Bar ===========------- */
+/* --- Applicable to the layout.html file ---- */
+
 // --- ===== SHOW / HIDE NAVBAR ===== ---
 
 const navBar = document.querySelector('.nav-bar');
@@ -23,81 +26,43 @@ bxX.addEventListener('click', () => {
   }
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* --------============== Signals ===========------- */
+/* --- Applicable to the signals.html file ---- */
+
+signalActions = document.querySelectorAll('.call-to-buy-txt');
+signalArrows = document.querySelectorAll('.arrow-sell-buy');
+
+/*
+check if signal action is sell or buy then change
+the background color and color
+*/
+signalActions.forEach(signalAction => {
+  if((signalAction.textContent).toLowerCase() === 'sell'){
+    signalAction.style.backgroundColor = "#ffd4d8"
+    signalAction.style.color = "#d33b25"
+  }else if ((signalAction.textContent).toLowerCase() === 'buy'){
+    signalAction.style.backgroundColor = "#cfe2e0"
+    signalAction.style.color = "#05697f"
+  }
+});
+
+/*
+check if signal action is sell or buy then change
+the arrow directions
+*/
+
+signalArrows.forEach(signalArrow => {
+  var signalParent = signalArrow.parentNode // Get signal arrow parent node
+  var signalActionName = signalParent.previousElementSibling.textContent // then it's siblings to find inside if it's sell or buy
+
+  if((signalActionName).toLowerCase() === 'sell'){
+    signalArrow.classList.remove('bx-up-arrow-alt')
+    signalArrow.classList.add('bx-down-arrow-alt')
+  }else if ((signalActionName).toLowerCase() === 'buy'){
+    signalArrow.classList.remove('bx-down-arrow-alt')
+    signalArrow.classList.add('bx-up-arrow-alt')
+  }
+});
 
 
 // //  ============ NOTIFY BUTTON ==============

@@ -64,18 +64,36 @@ signalArrows.forEach(signalArrow => {
   }
 });
 
-// --- To Be Continued ---
+// -------- To Be Continued -------
 // -------- Currency Converter API Fetch -----
+const fromCurrency = document.querySelector('.from-form-select');
+const toCurrency = document.querySelector('.to-form-select');
+
+// Get selected Value
+
+fromCurrency.addEventListener('change', (e) => {
+  console.log(e.target.value)
+})
+
 const getCurrencyData = () => {
+  const currencyArray = []
+  console.log(currencyArray)
+
   url = "https://free.currconv.com/api/v7/countries?apiKey=da439e3f05f695b038df"
   fetch(url)
   .then(response => response.json())
   .then(data => {
     for (const [key, value] of Object.entries(data['results'])){
-      console.log(value['currencyId'])
-      console.log(value['currencyName'])
+      var currencyId = value['currencyId']
+      var currencyName = value['currencyName']
+      var currObj = {
+        'currencyID': currencyId,
+        'currencyName': currencyName
+      }
+      currencyArray.push(currObj)
     }
   })
+  console.log(currencyArray)
 }
 
 getCurrencyData()
@@ -85,9 +103,6 @@ const convertCurrency = () => {
   var to = document.querySelector('.amount-from-form_curr')
   convert_url = "https://free.currconv.com/api/v7/convert?q="+_from+"_"+to+"&compact=ultra&apiKey="+API_KEY
 }
-
-
-
 
 
 

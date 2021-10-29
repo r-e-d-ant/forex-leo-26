@@ -13,41 +13,41 @@ import json
 from urllib.request import urlopen
 import sys
 
-# # -----------
+# -----------
 
-# RED = '\033[91m' # red font color in terminal
-# GREEN = '\033[92m' # green font color in terminal
-# reset = '\033[0m' # white font color in terminal
+RED = '\033[91m' # red font color in terminal
+GREEN = '\033[92m' # green font color in terminal
+reset = '\033[0m' # white font color in terminal
 
-# with open('etc/config.json') as config_file:
-#     config = json.load(config_file)
+with open('etc/config.json') as config_file:
+    config = json.load(config_file)
 
-# API_KEY = config.get('API_KEY')
+API_KEY = config.get('API_KEY')
 
-# if API_KEY == "":
-#     print(RED, "\nSorry, This can't work without the API key", GREEN ,"\nGo get one here : https://free.currencyconverterapi.com/free-api-key \n", reset)
-#     sys.exit(0)
+if API_KEY == "":
+    print(RED, "\nSorry, This can't work without the API key", GREEN ,"\nGo get one here : https://free.currencyconverterapi.com/free-api-key \n", reset)
+    sys.exit(0)
     
 
 
-# # assign url
-# countries_url = "https://free.currconv.com/api/v7/countries?apiKey="+API_KEY
+# assign url
+countries_url = "https://free.currconv.com/api/v7/countries?apiKey="+API_KEY
 
-# try:
-#     # open countries url and read it content
-#     with urlopen(countries_url) as response:
-#         source = response.read()
-# except:
-#     print(RED, "\nSorry, something went wrong, Maybe the API key is invalid or there is no internet connection.\n", reset)
-#     sys.exit(0)
+try:
+    # open countries url and read it content
+    with urlopen(countries_url) as response:
+        source = response.read()
+except:
+    print(RED, "\nSorry, something went wrong, Maybe the API key is invalid or there is no internet connection.\n", reset)
+    sys.exit(0)
  
 
-# countries_data = json.loads(source)
-# infos = dict()
-# for key, value in countries_data['results'].items():
-#     curr_id = value['currencyId']
-#     curr_name = value['currencyName']
-#     infos[curr_id] = curr_name
+countries_data = json.loads(source)
+infos = dict()
+for key, value in countries_data['results'].items():
+    curr_id = value['currencyId']
+    curr_name = value['currencyName']
+    infos[curr_id] = curr_name
 
 # -----------
 # Login and Register codes
@@ -344,7 +344,7 @@ def delete_feedback(feedback_id):
 
 
 
-@app.route("/currency_convert", methods=["GET", "POST"])
+@app.route("/currency-convert", methods=["GET", "POST"])
 def currency_convert():
     result = 0
     rate = 0

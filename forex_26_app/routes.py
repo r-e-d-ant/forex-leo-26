@@ -363,9 +363,9 @@ def currency_convert():
             formatted_rate = "{:,}".format((round(float(rate), 4)))
 
             result = round(float(amount) * float(rate), 2)
-            formatted_result = "{:,} {} ->> {:,} {}".format(int(amount), _from, result, to)
+            result = "{:,}".format(int(result))
             
             print("Amount:", str(amount), "From:", str(_from), "To:", str(to))
             print(result)
-            return render_template('currency_converter.html', infos=sorted(infos.items()), rate=formatted_rate, result=formatted_result, date=date, title="Currency converter")
+            return render_template('currency_converter.html', infos=sorted(infos.items()), rate=formatted_rate, result=result, date=date, title="Currency converter")
     return render_template('currency_converter.html', title="Currency converter",  time=datetime.utcnow(), infos=sorted(infos.items()), rate=rate, result=result, date=date)

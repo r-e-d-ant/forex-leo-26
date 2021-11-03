@@ -64,51 +64,72 @@ signalArrows.forEach(signalArrow => {
   }
 });
 
-// -------- To Be Continued -------
-// -------- Currency Converter API Fetch -----
-const fromCurrency = document.querySelector('.from-form-select');
-const toCurrency = document.querySelector('.to-form-select');
+// -=========== Currency Converter =============-
+// -- focus the amount input on mouseover and unfocus it on mouseleave --
 
-// Get selected Value
-
-fromCurrency.addEventListener('change', (e) => {
-  console.log(e.target.value)
+// focus
+const amountInput = document.querySelector('.amount-input')
+amountInput.addEventListener('mouseover', () => {
+  amountInput.focus()
 })
 
-const getCurrencyData = () => {
-  const currencyArray = []
-  console.log(currencyArray)
+// unfocus
+amountInput.addEventListener('mouseleave', () => {
+  amountInput.blur()
+})
 
-  url = "https://free.currconv.com/api/v7/countries?apiKey=da439e3f05f695b038df"
-  fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    for (const [key, value] of Object.entries(data['results'])){
-      var currencyId = value['currencyId']
-      var currencyName = value['currencyName']
-      var currObj = {
-        'currencyID': currencyId,
-        'currencyName': currencyName
-      }
-      currencyArray.push(currObj)
-    }
-  })
-  console.log(currencyArray)
+/*
+get currencies and keep them localy
+in order to show them when the browser refreshed
+*/
+
+const currConverterForm = document.querySelector('.curr-converter-form')
+const selectInputFrom = document.querySelector('.from')
+const selectInputTo = document.querySelector('.to')
+
+/*
+check in local storage recent currencies then populate them
+*/
+if(localStorage.getItem('convertAmount')) {
+  amountInput.value = localStorage.getItem('convertAmount')
 }
+console.log
+// --
+selectInputFrom.options[ selectInputFrom.selectedIndex ].value = localStorage.getItem('from')
+selectInputFrom.options[ selectInputFrom.selectedIndex ].textContent = localStorage.getItem('from_Name')
+// to
+selectInputTo.options[ selectInputTo.selectedIndex ].value = localStorage.getItem('to')
+selectInputTo.options[ selectInputTo.selectedIndex ].textContent = localStorage.getItem('to_Name')
+// ----------------------- 
 
-getCurrencyData()
-
-const convertCurrency = () => {
-  var _from = document.querySelector('.amount-from-form_number')
-  var to = document.querySelector('.amount-from-form_curr')
-  convert_url = "https://free.currconv.com/api/v7/convert?q="+_from+"_"+to+"&compact=ultra&apiKey="+API_KEY
-}
-
-
-
-
-
-
+currConverterForm.addEventListener('submit', (e) => {
+  if(localStorage.getItem('convertAmount') && localStorage.getItem('from') && localStorage.getItem('to') && localStorage.getItem('from_Name') && localStorage.getItem('to_Name')) {
+    localStorage.removeItem('convertAmount')
+    // --
+    localStorage.removeItem('from')
+    localStorage.removeItem('from_Name')
+    // to
+    localStorage.removeItem('to')
+    localStorage.removeItem('to_Name')
+    // --
+    localStorage.setItem('convertAmount', amountInput.value)
+    // -- 
+    localStorage.setItem('from', selectInputFrom.options[ selectInputFrom.selectedIndex ].value)
+    localStorage.setItem('from_Name', selectInputFrom.options[ selectInputFrom.selectedIndex ].textContent)
+    // to
+    localStorage.setItem('to', selectInputTo.options[ selectInputTo.selectedIndex ].value)
+    localStorage.setItem('to_Name', selectInputTo.options[ selectInputTo.selectedIndex ].textContent)
+  }
+  else {
+    localStorage.setItem('convertAmount', amountInput.value)
+    // --
+    localStorage.setItem('from', selectInputFrom.options[ selectInputFrom.selectedIndex ].value)
+    localStorage.setItem('from_Name', selectInputFrom.options[ selectInputFrom.selectedIndex ].textContent)
+    // to
+    localStorage.setItem('to', selectInputTo.options[ selectInputTo.selectedIndex ].value)
+    localStorage.setItem('to_Name', selectInputTo.options[ selectInputTo.selectedIndex ].textContent)
+  }
+})
 
 
 

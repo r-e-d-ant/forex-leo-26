@@ -2,40 +2,9 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<!-- Latest Posts -->
-
 {% if posts.items|length > 0 %}
-{% if posts.page == 1 %}
-<div class="currency_converter-container">
-    <h2>Currency Converter</h2>
-    <div class="currency-converter__card">
-        <div class="currencies-info-container">
-            <p>1 Rwandan franc equals</p>
-            <p>1.97 Burundian franc</p>
-        </div>
-        <span class="today-time">26 Aug, 16:38</span>
-        <div class="amount-forms-container">
-            <div class="amount-from-container">
-                <input class="amount-from-form amount-from-form_number" type="number"></input>
-                <select class="from-form-select" name="currencyID_from" id="currency-id">
-                    <option value=""></option>
-                </select>
-            </div>
-
-            <!-- Amount To -->
-            <div class="amount-to-container">
-                <input class="amount-to-form" type="number"></input>
-                <select class="to-form-select" name="currencyID_from" id="currency-id">
-                    <option value=""></option>
-                </select>
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
 
 <!-- All Posts -->
-
 <div class="news-cards-container">
     {% for post in posts.items %}
     <div class="news-card">

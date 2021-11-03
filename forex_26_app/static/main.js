@@ -93,7 +93,6 @@ check in local storage recent currencies then populate them
 if(localStorage.getItem('convertAmount')) {
   amountInput.value = localStorage.getItem('convertAmount')
 }
-console.log
 // --
 selectInputFrom.options[ selectInputFrom.selectedIndex ].value = localStorage.getItem('from')
 selectInputFrom.options[ selectInputFrom.selectedIndex ].textContent = localStorage.getItem('from_Name')

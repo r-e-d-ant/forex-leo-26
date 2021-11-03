@@ -17,6 +17,7 @@
 
 .feedback-card {
     border: thin solid var(--gray-border-clr);
+    margin: 1rem 0;
 }
 
 .card-header-container {

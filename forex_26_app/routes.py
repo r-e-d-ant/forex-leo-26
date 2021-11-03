@@ -11,10 +11,8 @@ import os
 from PIL import Image
 import json
 from urllib.request import urlopen
-import sys, os
+import sys
 
-# -----------
-print(os.environ.get('/'))
 
 RED = '\033[91m' # red font color in terminal
 GREEN = '\033[92m' # green font color in terminal

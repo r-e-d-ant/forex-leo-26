@@ -1,7 +1,0 @@
-{
-    "SECRET_KEY": "063893c3b03e7666d13ccf0fc49ff4f35dcc64f896b096947a931c7bfa4a8106",
-    "SQLALCHEMY_DATABASE_URI": "sqlite:///db_forex_news.db",
-    "API_KEY" : "da439e3f05f695b038df",
-    "ADMIN_USER_NAME": "DidyCub",
-    "ADMIN_PASSWORD": "Ubu0202MTLcub"
-}
